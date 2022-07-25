@@ -40,7 +40,7 @@ const runServer = async () => {
 
     const apolloServer = new ApolloServer({
       schema,
-      context: ({ req, res }: IContext) => ({ req, res }),
+      context: (context: IContext) => context,
       formatError: ({ message }) => ({ message: getErrorMessage(message) }),
     });
 
