@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 
 type TUser = {
-  id: string;
+  id: number;
 };
 
 export interface IContext {
