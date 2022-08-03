@@ -21,7 +21,7 @@ export class UserSigninResolver {
   @Query(() => Boolean)
   async userSignin(
     @Args() { email, password }: UserSigninArgs,
-    @Ctx() { req, res }: IContext
+    @Ctx() { res }: IContext
   ) {
     const user = (await User.findOne({ where: { email } })) as User;
 

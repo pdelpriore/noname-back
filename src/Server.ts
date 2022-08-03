@@ -46,7 +46,7 @@ const runServer = async () => {
 
     await apolloServer.start();
 
-    apolloServer.applyMiddleware({ app });
+    apolloServer.applyMiddleware({ app, cors: corsOptions });
 
     app.listen(port, () => console.log("Server is running"));
   } catch (err) {

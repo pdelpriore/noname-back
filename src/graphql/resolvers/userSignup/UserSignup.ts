@@ -2,7 +2,6 @@ import { IsEmail, MaxLength, MinLength } from "class-validator";
 import { Args, ArgsType, Field, Mutation, Resolver } from "type-graphql";
 import argon2 from "argon2";
 import { User } from "../../../db/entity/user/User";
-import { ErrorResponse } from "../../errors/Errors";
 
 @ArgsType()
 class UserSignupArgs {

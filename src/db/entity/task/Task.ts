@@ -30,7 +30,7 @@ export class Task extends BaseEntity {
   updatedAt!: Date;
 
   @Field(() => User)
-  @ManyToOne(() => User, (user) => user.tasks)
+  @ManyToOne(() => User, (user) => user.tasks, { onDelete: "CASCADE" })
   @JoinColumn({ name: "userId" })
   user!: User;
 }
