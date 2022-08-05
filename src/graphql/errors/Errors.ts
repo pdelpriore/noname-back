@@ -10,7 +10,7 @@ export enum ErrorResponse {
   MINLENGTH_PASSWORD = "MINLENGTH_PASSWORD",
   MAXLENGTH_NAME = "MAXLENGTH_NAME",
   UNIQUE_EMAIL = "UNIQUE_EMAIL",
-  WRONG_PASSWORD = "WRONG_PASSWORD",
+  WRONG_CREDENTIALS = "WRONG_CREDENTIALS",
 }
 
 interface IErrorTypes {
@@ -27,5 +27,5 @@ export const ErrorTypes: IErrorTypes = {
   [ErrorResponse.MAXLENGTH_NAME]:
     "Nazwa uzytkownika nie moze zawierac wiecej niz 20 znakow",
   [ErrorResponse.UNIQUE_EMAIL]: "Podany adres email jest juz zajety",
-  [ErrorResponse.WRONG_PASSWORD]: "Nieprawidlowe haslo",
+  [ErrorResponse.WRONG_CREDENTIALS]: "Nieprawidlowy email lub haslo",
 };

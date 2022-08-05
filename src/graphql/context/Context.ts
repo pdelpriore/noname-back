@@ -1,11 +1,10 @@
 import { Request, Response } from "express";
 
-type TUser = {
-  id: number;
-};
+interface IRequest extends Request {
+  userId: number;
+}
 
 export interface IContext {
-  req: Request;
+  req: IRequest;
   res: Response;
-  user: TUser;
 }

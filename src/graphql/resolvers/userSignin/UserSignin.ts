@@ -27,8 +27,8 @@ export class UserSigninResolver {
 
     const userPasswordVerified = await argon2.verify(user.password, password);
 
-    if (!userPasswordVerified) {
-      throw new Error(ErrorResponse.WRONG_PASSWORD);
+    if (!user || !userPasswordVerified) {
+      throw new Error(ErrorResponse.WRONG_CREDENTIALS);
     }
 
     const accessToken = jwt.sign(

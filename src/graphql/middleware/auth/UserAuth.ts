@@ -4,7 +4,7 @@ import jwt from "jsonwebtoken";
 import { ErrorResponse } from "../../errors/Errors";
 
 const userAuth: MiddlewareFn<IContext> = async (
-  { context: { req, user }, info },
+  { context: { req }, info },
   next
 ) => {
   if (
@@ -25,15 +25,15 @@ const userAuth: MiddlewareFn<IContext> = async (
   jwt.verify(
     userToken,
     process.env.JWT_SECRET as string,
-    async (_: any, decoded: any) => {
+    (_: any, decoded: any) => {
       if (!decoded) {
         throw new Error(ErrorResponse.UNAUTHORIZED);
       }
-
-      user = { ...user, id: decoded.userId };
-      return await next();
+      req.userId = decoded.userId;
     }
   );
+
+  return await next();
 };
 
 export default userAuth;
