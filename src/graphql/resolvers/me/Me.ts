@@ -6,8 +6,8 @@ import { IContext } from "../../context/Context";
 export class MeResolver {
   @Query(() => User)
   async me(@Ctx() { req }: IContext) {
-    const user = (await User.findOne({ where: { id: req.userId } })) as User;
+    const me = (await User.findOne({ where: { id: req.userId } })) as User;
 
-    return user;
+    return me;
   }
 }
